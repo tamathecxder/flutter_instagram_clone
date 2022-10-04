@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/widgets/profile_pic.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -39,49 +40,52 @@ class ProfilePage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Row(
-            children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: 120,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.blue[600]!,
-                          Colors.purple[400]!,
-                          Colors.pink[400]!,
-                          Colors.orange[600]!,
-                          Colors.yellow[700]!
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(140 / 2),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Row(
+              children: [
+                ProfilePic(),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        UserInfoWidget("225", "Posts"),
+                        UserInfoWidget("5.000", "Followers"),
+                        UserInfoWidget("11", "Following"),
+                      ],
                     ),
                   ),
-                  Container(
-                    width: 108,
-                    height: 108,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image:
-                            NetworkImage("https://picsum.photos/id/22/500/500"),
-                        fit: BoxFit.cover,
-                      ),
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(100 / 2),
-                      border: Border.all(color: Colors.white, width: 3),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+                )
+              ],
+            ),
           )
         ],
       ),
+    );
+  }
+}
+
+class UserInfoWidget extends StatelessWidget {
+  UserInfoWidget(this.value, this.title);
+
+  final String title;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          value,
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          title,
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+        ),
+      ],
     );
   }
 }
