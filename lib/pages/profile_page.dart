@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/widgets/profile_pic.dart';
+import 'package:instagram_clone/widgets/user_info.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -63,29 +64,6 @@ class ProfilePage extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class UserInfoWidget extends StatelessWidget {
-  UserInfoWidget(this.value, this.title);
-
-  final String title;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          value,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          title,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
-        ),
-      ],
     );
   }
 }
