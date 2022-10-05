@@ -48,7 +48,7 @@ class ProfilePage extends StatelessWidget {
                 ProfilePic(),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -58,12 +58,86 @@ class ProfilePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              "Manusia Modern",
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 6,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: RichText(
+              text: TextSpan(
+                style: TextStyle(color: Colors.black),
+                text:
+                    "Despite your best efforts, not everyone wants to be helped. Make a difference where you can and be at peace with the rest. ",
+                children: [
+                  TextSpan(
+                      style: TextStyle(color: Colors.blue[700]),
+                      text: "#keepstrong"),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 6,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: RichText(
+              text: TextSpan(
+                style: TextStyle(color: Colors.blue[700]),
+                text: "github.com/tamathecxder",
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 6,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: OutlinedButton(
+              onPressed: () {
+                print("Anda sedang klik Edit Profile");
+              },
+              child: Text(
+                "Edit Profile",
+                style: TextStyle(color: Colors.black),
+              ),
+              style: OutlinedButton.styleFrom(backgroundColor: Colors.white),
+            ),
+          ),
+          SizedBox(
+            height: 6,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Container(),
+          ),
         ],
       ),
     );
   }
 }
+
+// Text(
+//   "Despite your best efforts, not everyone wants to be helped. Make a difference where you can and be at peace with the rest.",
+//   style: TextStyle(
+//     fontSize: 16,
+//     fontWeight: FontWeight.normal,
+//   ),
+// ),
