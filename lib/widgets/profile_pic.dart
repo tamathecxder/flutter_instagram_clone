@@ -9,8 +9,8 @@ class ProfilePic extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-          width: 116,
-          height: 116,
+          width: 100,
+          height: 100,
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
@@ -27,8 +27,8 @@ class ProfilePic extends StatelessWidget {
           ),
         ),
         Container(
-          width: 108,
-          height: 108,
+          width: 96,
+          height: 96,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage("https://picsum.photos/id/22/500/500"),

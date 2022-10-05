@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/widgets/profile_pic.dart';
+import 'package:instagram_clone/widgets/saved_stories.dart';
+import 'package:instagram_clone/widgets/tab_item.dart';
 import 'package:instagram_clone/widgets/user_info.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -48,12 +50,12 @@ class ProfilePage extends StatelessWidget {
                 ProfilePic(),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        UserInfoWidget("225", "Posts"),
-                        UserInfoWidget("5.000", "Followers"),
+                        UserInfoWidget("28", "Posts"),
+                        UserInfoWidget("2M", "Followers"),
                         UserInfoWidget("11", "Following"),
                       ],
                     ),
@@ -70,7 +72,7 @@ class ProfilePage extends StatelessWidget {
             child: Text(
               "Manusia Modern",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -126,18 +128,65 @@ class ProfilePage extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Container(),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SavedStories(
+                    storyCaption: "Holiday",
+                    imgThumb: "https://picsum.photos/200/300?random=1",
+                  ),
+                  SavedStories(
+                    storyCaption: "Las Vegas💎",
+                    imgThumb: "https://picsum.photos/200/300?random=2",
+                  ),
+                  SavedStories(
+                    storyCaption: "w/ You",
+                    imgThumb: "https://picsum.photos/200/300?random=3",
+                  ),
+                  SavedStories(
+                    storyCaption: "---Tired---",
+                    imgThumb: "https://picsum.photos/200/300?random=4",
+                  ),
+                  SavedStories(
+                    storyCaption: "On Fire🔥",
+                    imgThumb: "https://picsum.photos/200/300?random=5",
+                  ),
+                  SavedStories(
+                    storyCaption: "Vacation",
+                    imgThumb: "https://picsum.photos/200/300?random=6",
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 18,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TabItem(Icons.grid_on_rounded, true),
+              TabItem(Icons.person_outline, false),
+              TabItem(Icons.tag, false),
+              TabItem(Icons.event_available, false),
+            ],
+          ),
+          GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 28,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, mainAxisSpacing: 1, crossAxisSpacing: 1),
+            itemBuilder: (context, index) {
+              return Image.network(
+                "https://picsum.photos/500/500?random=${index + 1}.webp",
+                fit: BoxFit.cover,
+              );
+            },
           ),
         ],
       ),
     );
   }
 }
-
-// Text(
-//   "Despite your best efforts, not everyone wants to be helped. Make a difference where you can and be at peace with the rest.",
-//   style: TextStyle(
-//     fontSize: 16,
-//     fontWeight: FontWeight.normal,
-//   ),
-// ),

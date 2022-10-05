@@ -16,7 +16,7 @@ class UserInfoWidget extends StatelessWidget {
         ),
         Text(
           title,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal),
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal),
         ),
       ],
     );
